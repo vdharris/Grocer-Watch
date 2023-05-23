@@ -1,0 +1,20 @@
+
+$p-black: rgb(0,0,0);
+$s-black: lighten($p-black, 70%);
+$l-grey: lighten($p-black, 80%);
+$sl-grey: lighten($p-black, 90%);
+
+.queryBarContainer{
+background-color: $s-black;
+border: 3px;
+border-color: $p-black;
+border-style: solid;
+}
+
+.recallResultsContainer{
+background-color: $l-grey;
+}
+
+body{
+    background-color: $sl-grey;
+}
