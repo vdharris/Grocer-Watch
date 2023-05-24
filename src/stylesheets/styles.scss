@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
 
 $p-black: rgb(0, 0, 0);
 $s-black: lighten($p-black, 40%);
@@ -86,6 +86,8 @@ $sl-grey: lighten($p-black, 90%);
 // }
 #title{
     text-align: center;
+    font-family: rozha one;
+    font-size: 45px;
 }
 
 body {

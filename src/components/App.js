@@ -7,7 +7,7 @@ class App extends Component {
     render(){
         return(
             <div className='title'>
-                <h1 id='title'>FDA Food Recalls</h1>
+                <h1 id='title'>Recallinator 2000</h1>
                 <QueryBar/>
             </div>
         )
