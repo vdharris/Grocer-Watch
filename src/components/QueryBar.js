@@ -18,7 +18,7 @@ class QueryBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: 'https://api.fda.gov/food/enforcement.json?sort=report_date:desc&limit=5',
+      url: 'https://api.fda.gov/food/enforcement.json?sort=report_date:desc&limit=10',
       recalls: [],
       stores: ['Target', 'Kroger', 'Aldi', 'Walmart', 'Publix', 'Costco', 'Whole Foods', 'Albertsons', 'Dollar General', 'Trader Joe', 'Recent Recalls'],
     };
@@ -40,6 +40,7 @@ class QueryBar extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.url !== this.state.url) {
+      console.log(this.state.url);
       fetch(this.state.url)
         .then(response => response.json())
         .then((data) => {
@@ -55,9 +56,9 @@ class QueryBar extends Component {
     console.log(`You hit button for ${store}`);
     if (store !== 'Recent Recalls') {
       this.setState({
-        url: `https://api.fda.gov/food/enforcement.json?search=distribution_pattern:${store}&sort=report_date:desc&limit=25`
+        url: `https://api.fda.gov/food/enforcement.json?search=distribution_pattern:${store}+product_description:${store}&sort=report_date:desc&limit=50`
       })
-      // console.log(this.state.url);
+      
     }else{
       this.setState({
         url: 'https://api.fda.gov/food/enforcement.json?sort=report_date:desc&limit=50'
@@ -84,7 +85,7 @@ class QueryBar extends Component {
     return (
       <div className='queryBarContainer'>
         {/* {items} */}
-        <h2>Store Selector</h2>
+        <h2 id='storeTitle'>Store Selector</h2>
         <div className='storesContainer'>
           {buttons}
         </div>

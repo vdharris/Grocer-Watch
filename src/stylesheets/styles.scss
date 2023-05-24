@@ -1,45 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400&display=swap');
 
-$p-black: rgb(0,0,0);
-$s-black: lighten($p-black, 50%);
+
+$p-black: rgb(0, 0, 0);
+$s-black: lighten($p-black, 40%);
 $l-grey: lighten($p-black, 80%);
 $sl-grey: lighten($p-black, 90%);
 
-.queryBarContainer{
-background-color: $l-grey;
-border: 3px;
-border-color: $p-black;
-border-style: solid;
-}
-
-.storesContainer{
-    display:flex;
-    background-color: pink;
-}
-
-.recallFeed{
-background-color: skyblue;
-border: 2px;
-border-style: solid;
-}
-
-.recallItem{
-    border-style: solid;
+.queryBarContainer {
+    background-color: lighten(rgb(229, 177, 129), 0%);
+    border: 0px;
     border-color: $s-black;
+    border-style: solid;
+    border-radius: 7px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-.storeButton{
+.storesContainer {
+    display: flex;
+    // background-color: pink;
+}
+
+.recallFeed {
+    // background-color: skyblue;
+    display: flex;
+    border: 0px;
+    border-style: solid;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.recallItem {
+    border-style: solid;
+    border: 0px;
+    border-color: $s-black;
+    background-color: beige;
+    margin: 3px;
+    padding: 7px;
+    // flex: 0 0 350px;
+}
+
+.storeButton {
     width: 25%;
     font-size: 20px;
     height: 50px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color: rgb(125, 187, 195);
+    border: 0px;
+    color: lighten(rgb(222, 107, 72), 40%);
 }
 
-#date{
-    font-size: 15px;
+#storeTitle {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
 }
 
-#product_info{
-    color: $s-black
+#firm {
+    font-weight: bold;
+    color: black;
 }
-body{
-    background-color: $sl-grey;
+
+#date {
+    color: $s-black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#product_info {
+    margin-top: 0px;
+    color: $s-black;
+}
+
+// .title {
+//     // display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     color: lighten(rgb(222, 107, 72), 40%);
+// }
+#title{
+    text-align: center;
+}
+
+body {
+    background-color: lighten(rgb(222, 107, 72), 8%);
+    color: lighten(rgb(222, 107, 72), 40%);
+    font-family: bitter;
 }
