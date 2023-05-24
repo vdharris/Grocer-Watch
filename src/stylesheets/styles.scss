@@ -1,20 +1,44 @@
 
 $p-black: rgb(0,0,0);
-$s-black: lighten($p-black, 70%);
+$s-black: lighten($p-black, 50%);
 $l-grey: lighten($p-black, 80%);
 $sl-grey: lighten($p-black, 90%);
 
 .queryBarContainer{
-background-color: $s-black;
+background-color: $l-grey;
 border: 3px;
 border-color: $p-black;
 border-style: solid;
 }
 
-.recallResultsContainer{
-background-color: $l-grey;
+.storesContainer{
+    background-color: pink;
 }
 
+.recallFeed{
+background-color: skyblue;
+border: 2px;
+border-style: solid;
+}
+
+.recallItem{
+    border-style: solid;
+    border-color: $s-black;
+}
+
+.storeButton{
+    width: 25%;
+    font-size: 20px;
+    height: 50px;
+}
+
+#date{
+    font-size: 15px;
+}
+
+#product_info{
+    color: $s-black
+}
 body{
     background-color: $sl-grey;
 }
