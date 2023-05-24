@@ -3,7 +3,7 @@ import RecallResults from './RecallResults';
 import StoreButton from './StoreButton'
 
 
-class QueryBar extends Component {
+class QueryContainer extends Component {
 
 
   //   handleClick = async () => {
@@ -58,8 +58,8 @@ class QueryBar extends Component {
       this.setState({
         url: `https://api.fda.gov/food/enforcement.json?search=distribution_pattern:${store}+product_description:${store}&sort=report_date:desc&limit=50`
       })
-      
-    }else{
+
+    } else {
       this.setState({
         url: 'https://api.fda.gov/food/enforcement.json?sort=report_date:desc&limit=50'
       })
@@ -83,11 +83,12 @@ class QueryBar extends Component {
 
 
     return (
-      <div className='queryBarContainer'>
-        {/* {items} */}
-        <h2 id='storeTitle'>Store Selector</h2>
-        <div className='storesContainer'>
-          {buttons}
+      <div className='queryContainer'>
+        <div className='queryHeader'>
+          <h2 id='storeTitle'>Store Selector</h2>
+          <div className='storesContainer'>
+            {buttons}
+          </div>
         </div>
         <div className='recallFeed'>
           {items}
@@ -96,4 +97,4 @@ class QueryBar extends Component {
     );
   }
 }
-export default QueryBar;
+export default QueryContainer;

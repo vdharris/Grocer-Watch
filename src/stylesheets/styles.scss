@@ -1,13 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400&display=swap');
 
 $p-black: rgb(0, 0, 0);
 $s-black: lighten($p-black, 40%);
 $l-grey: lighten($p-black, 80%);
 $sl-grey: lighten($p-black, 90%);
+$back: #f3f4f4;
+$lback: #fff;
+$main-font: #00517d;
 
-.queryBarContainer {
-    background-color: lighten(rgb(229, 177, 129), 0%);
+
+.queryContainer {
+    background-color: $back;
     border: 0px;
     border-color: $s-black;
     border-style: solid;
@@ -16,15 +19,47 @@ $sl-grey: lighten($p-black, 90%);
     justify-content: center;
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 10px;
+    padding: 10px;
 }
 
 .storesContainer {
     display: flex;
+    flex-wrap:wrap;
+    // align-items: center;
+    justify-content: center;
+    // justify-content: space-between;
     // background-color: pink;
 }
 
+
+.storeButton {
+    flex-basis:90px;
+    flex-grow:.25;
+    font-size: 19px;
+    height: 50px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color: rgb(125, 187, 195);
+    border: 0px;
+    color: white;
+    font-weight: 300;
+    font-family: source sans pro;
+}
+.storeButton:hover{
+    background-color: $main-font;
+}
+
+#storeTitle {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    font-family: source sans pro;
+}
+
 .recallFeed {
-    // background-color: skyblue;
     display: flex;
     border: 0px;
     border-style: solid;
@@ -33,65 +68,62 @@ $sl-grey: lighten($p-black, 90%);
 }
 
 .recallItem {
-    border-style: solid;
-    border: 0px;
-    border-color: $s-black;
-    background-color: beige;
+    border: thin solid #ccc;
+    border-radius: 5px;
+    background-color: $lback;
     margin: 3px;
     padding: 7px;
     // flex: 0 0 350px;
 }
-
-.storeButton {
-    width: 25%;
-    font-size: 20px;
-    height: 50px;
-    margin: 3px;
-    border-radius: 5px;
-    background-color: rgb(125, 187, 195);
-    border: 0px;
-    color: lighten(rgb(222, 107, 72), 40%);
-}
-
-#storeTitle {
-    text-align: center;
-    font-size: 30px;
-    padding-top: 20px;
-    padding-bottom: 0px;
-    margin-bottom: 10px;
-}
-
 #firm {
-    font-weight: bold;
-    color: black;
+    font-weight: 700;
+    color: $main-font;
 }
 
 #date {
     color: $s-black;
     margin-top: 0px;
     margin-bottom: 0px;
+    font-family: source sans pro;
 }
 
 #product_info {
     margin-top: 0px;
     color: $s-black;
+    font-family: source sans pro;
 }
 
-// .title {
-//     // display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     color: lighten(rgb(222, 107, 72), 40%);
-// }
+.head{
+    background-color: $main-font;
+    display:block;
+    margin: 0px;
+    padding:20px;
+    width:100%;
+}
 #title{
     text-align: center;
-    font-family: rozha one;
+    font-family: source sans pro;
+    font-weight: 200;
+    text-transform: uppercase;
     font-size: 45px;
+    color: $lback;
+}
+.page{
+    margin:0px;
+    padding:0px;
+}
+h1{
+    margin:0px;
+    padding:0px;
+}
+h2{
+    margin:0px;
 }
 
 body {
-    background-color: lighten(rgb(222, 107, 72), 8%);
-    color: lighten(rgb(222, 107, 72), 40%);
-    font-family: bitter;
+    background-color: $lback;
+    color: $main-font;
+    font-family: Merriweather,Georgia,serif;
+    margin:0px;
+    padding:0px;
 }
