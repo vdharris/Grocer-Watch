@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RecallResults from './RecallResults';
-// import StoreButton from './StoreButton'
+import AddRecall from './AddRecall'
 import { Link } from 'react-router-dom';
 
 
@@ -29,17 +29,6 @@ class QueryContainer extends Component {
   }
 
   //create fetch request for server items and update the this.state with the items fetched into the urls array
-  // componentDidMount() {
-  //   fetch(this.state.url)
-  //     .then(response => response.json())
-  //     .then((data) => {
-  //       // console.log(data);
-  //       this.setState({
-  //         recalls: data.results
-  //       });
-  //     })
-  // }
-
   componentDidMount() {
     console.log('Original Mount')
     fetch(this.state.url)
@@ -60,9 +49,15 @@ class QueryContainer extends Component {
         .then(response => response.json())
         .then((data) => {
           // console.log(data);
-          this.setState({
-            recalls: data.results
-          });
+          if(data.results){
+            this.setState({
+              recalls: data.results
+            });
+          }else{
+            this.setState({
+              recalls: data
+            });
+          }
         })
     }
   }
@@ -72,11 +67,12 @@ class QueryContainer extends Component {
     if (store !== 'Recent Recalls') {
       this.setState({
         url: `https://api.fda.gov/food/enforcement.json?search=distribution_pattern:${store}+product_description:${store}&sort=report_date:desc&limit=50`
+        // url: `${this.state.url}${store}`
       })
 
     } else {
       this.setState({
-        url: 'https://api.fda.gov/food/enforcement.json?sort=report_date:desc&limit=50'
+        url: 'http://localhost:3000/api/food/more'
       })
     }
   }
@@ -93,7 +89,7 @@ class QueryContainer extends Component {
     const items = [];
     for (let i = 0; i < this.state.recalls.length; i++) {
       // console.log(this.state.recalls[i]);
-      items.push(<RecallResults key={`item${i}`} value={this.state.recalls[i]} />);
+      items.push(<RecallResults key={`item${i}`} index={`${i+1}. `} value={this.state.recalls[i]} />);
     }
 
 
@@ -101,7 +97,7 @@ class QueryContainer extends Component {
       <div>
         <div className='head'>
           <Link to='/'>
-          <h1 id='title'>Grocery Store Recalls</h1>
+          <h1 id='title' href='http://localhost:3000/api/food/'>Grocery Store Recalls</h1>
           </Link>
         </div>
         <div className='queryContainer'>
@@ -110,6 +106,9 @@ class QueryContainer extends Component {
             <div className='storesContainer'>
               {buttons}
             </div>
+            {/* <div className='addRecall'>
+            <AddRecall/>
+            </div> */}
           </div>
           <div className='recallFeed'>
             {items}

@@ -10,7 +10,7 @@ class RecallResults extends Component {
         const report_date2 = `${report_date.slice(0, 4)}-${report_date.slice(4, 6)}-${report_date.slice(6, 8)}`
         return (
             <div className='recallItem'>
-                <p id='firm'>{recalling_firm}</p>
+                <p id='firm'>{this.props.index}{recalling_firm}</p>
                 <hr/>
                 <p id='date'>Date of recall: {report_date2}</p>
                 <p id='product_info'>Food Info:<br />{product_description2}</p>

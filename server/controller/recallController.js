@@ -8,7 +8,20 @@ recallController.getRecent = async (req, res, next) => {
     try {
         console.log('searching db');
         const result = await FoodRecalls.find({}, null, {sort: {report_date: -1}, limit: 5, skip: 1});
-        console.log('here is the DB output',result[0]);
+        // console.log('here is the DB output',result[0]);
+        res.locals.recalls = result;
+        // console.log('display results', result);
+        next();
+    } catch (error) {
+        next(error);
+    }
+};
+
+recallController.getMore = async (req, res, next) => {
+    try {
+        console.log('searching db');
+        const result = await FoodRecalls.find({}, null, {sort: {report_date: -1}, limit: 25, skip: 1});
+        // console.log('here is the DB output',result[0]);
         res.locals.recalls = result;
         // console.log('display results', result);
         next();

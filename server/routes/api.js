@@ -10,6 +10,11 @@ router.get('/', recallController.getRecent, (req, res) => {
 }
 );
 
+router.get('/more', recallController.getMore, (req, res) => {
+    res.status(200).json(res.locals.recalls);
+}
+);
+
 router.get('/:id', recallController.getStore, (req,res) => {
     res.status(200).json(res.locals.storerecalls);
 })
