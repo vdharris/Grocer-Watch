@@ -6,16 +6,6 @@ import { Link } from 'react-router-dom';
 
 class QueryContainer extends Component {
 
-
-  //   handleClick = async () => {
-  //     try {
-  //         const data = await (await fetch(`https://api.fda.gov/food/enforcement.json?search=recalling_firm:%22target%20corporation%22&sort=report_date:desc&limit=10`)).json();
-  //         console.log(data);
-  //         setData(data);
-  //     } catch (err) {
-  //         console.log(err.message)
-  //     }
-  // }
   constructor(props) {
     super(props);
     this.state = {
@@ -96,9 +86,9 @@ class QueryContainer extends Component {
     return (
       <div>
         <div className='head'>
-          <Link to='/'>
-          <h1 id='title' href='http://localhost:3000/api/food/'>Grocery Store Recalls</h1>
-          </Link>
+          
+          <h1 id='title' >grocer recalls</h1>
+          
         </div>
         <div className='queryContainer'>
           <div className='queryHeader'>
@@ -106,9 +96,9 @@ class QueryContainer extends Component {
             <div className='storesContainer'>
               {buttons}
             </div>
-            {/* <div className='addRecall'>
+            <div className='newRecall'>
             <AddRecall/>
-            </div> */}
+            </div>
           </div>
           <div className='recallFeed'>
             {items}

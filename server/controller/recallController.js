@@ -7,7 +7,7 @@ const recallController = {};
 recallController.getRecent = async (req, res, next) => {
     try {
         console.log('searching db');
-        const result = await FoodRecalls.find({}, null, {sort: {report_date: -1}, limit: 5, skip: 1});
+        const result = await FoodRecalls.find({}, null, {sort: {report_date: -1}, limit: 5});
         // console.log('here is the DB output',result[0]);
         res.locals.recalls = result;
         // console.log('display results', result);
@@ -20,8 +20,8 @@ recallController.getRecent = async (req, res, next) => {
 recallController.getMore = async (req, res, next) => {
     try {
         console.log('searching db');
-        const result = await FoodRecalls.find({}, null, {sort: {report_date: -1}, limit: 25, skip: 1});
-        // console.log('here is the DB output',result[0]);
+        const result = await FoodRecalls.find({}, null, {sort: {report_date: -1}, limit: 25});
+        console.log('here is the DB output',result[0]);
         res.locals.recalls = result;
         // console.log('display results', result);
         next();

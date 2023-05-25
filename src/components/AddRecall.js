@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState } from 'react';
+import React from 'react';
 
 
 const AddRecall = () => {
@@ -32,15 +33,15 @@ const handleSubmit = async (e) => {
 
     return (
         <form className='create' onSubmit={handleSubmit}>
-            <h3>Add a New Recall</h3>
-            <label>Manufacturer:</label>
-            <input type="text" onChange={(e) => setFirm(e.target.value)} value={recalling_firm}/>
-
-            <label>Date (YYYY-MM-DD):</label>
-            <input type="text" onChange={(e) => setDate(e.target.value.toString())} value={report_date}/>
-
-            <label>Product Info:</label>
-            <input type="text" onChange={(e) => setProduct(e.target.value)} value={product_description}/>
+            <h3>Add New Recall</h3>
+            <label>Manufacturer</label><br/>
+            <input type="text" onChange={(e) => setFirm(e.target.value)} value={recalling_firm}/><br/>
+            
+            <label>Date (YYYYMMDD)</label><br/>
+            <input type="text" onChange={(e) => setDate(e.target.value.toString())} value={report_date}/><br/>
+            
+            <label>Product Info</label><br/>
+            <input type="text" onChange={(e) => setProduct(e.target.value)} value={product_description}/><br/>
             <button>Submit Recall</button>
         </form>
     )
