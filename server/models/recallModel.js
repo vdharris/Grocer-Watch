@@ -30,7 +30,7 @@ const foodRecallSchema = new Schema({
     openfda: Object,
     product_type: String,
     event_id: String,
-    recalling_firm: String,
+    recalling_firm: {type:String, required: true},
     address_1: String,
     address_2: String,
     postal_code: String,
@@ -38,17 +38,17 @@ const foodRecallSchema = new Schema({
     initial_firm_notification: String,
     distribution_pattern: String,
     recall_number: String,
-    product_description: String,
+    product_description: {type:String, reqired: true},
     product_quantity: String,
     reason_for_recall: String,
     recall_initiation_date: String,
     center_classification_date: String,
     termination_date: String,
-    report_date: String,
+    report_date: {type:String, required: true},
     code_info: String,
 })
-//creats a model for the 'foodRecalls' collection that will be part of the export
-const FoodRecalls = mongoose.model('foodRecalls', foodRecallSchema);
+//creates a model and foodRecalls collection for each of the 'foodRecall' documents that will be added and taken from the DB
+const FoodRecalls = mongoose.model('foodRecall', foodRecallSchema);
 
 module.exports = {
     FoodRecalls

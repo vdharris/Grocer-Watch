@@ -4,17 +4,19 @@ const app = express();
 
 const apiRouter = require('./routes/api');
 const PORT = 3000;
+
+//need below to take in post requests as json
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
 //routes
-app.use('/api', apiRouter);
+app.use('/api/food', apiRouter);
 
 
 // route handler to respond with main app
 app.get('/', (req, res) =>{
-    res.json('At Main App')
+    res.status(200).json('At Main App')
     })
 
 // app.get('/', (req, res) => {
