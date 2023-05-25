@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-
+const cors = require('cors');
 const apiRouter = require('./routes/api');
 const PORT = 3000;
 
@@ -9,6 +9,10 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//CORS fix
+app.use(cors({
+    origin: 'http://localhost:8080',
+}))
 
 //routes
 app.use('/api/food', apiRouter);

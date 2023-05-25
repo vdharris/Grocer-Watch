@@ -19,7 +19,8 @@ class QueryContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: 'https://api.fda.gov/food/enforcement.json?sort=report_date:desc&limit=10',
+      // url: 'https://api.fda.gov/food/enforcement.json?sort=report_date:desc&limit=10',
+      url: 'http://localhost:3000/api/food/',
       recalls: [],
       stores: ['Target', 'Kroger', 'Aldi', 'Walmart', 'Publix', 'Costco', 'Whole Foods', 'Albertsons', 'Dollar General', 'Trader Joe', 'Recent Recalls'],
     };
@@ -28,13 +29,26 @@ class QueryContainer extends Component {
   }
 
   //create fetch request for server items and update the this.state with the items fetched into the urls array
+  // componentDidMount() {
+  //   fetch(this.state.url)
+  //     .then(response => response.json())
+  //     .then((data) => {
+  //       // console.log(data);
+  //       this.setState({
+  //         recalls: data.results
+  //       });
+  //     })
+  // }
+
   componentDidMount() {
+    console.log('Original Mount')
     fetch(this.state.url)
       .then(response => response.json())
       .then((data) => {
         // console.log(data);
+        console.log('Original Mount!!');
         this.setState({
-          recalls: data.results
+          recalls: data
         });
       })
   }
@@ -70,9 +84,9 @@ class QueryContainer extends Component {
 
   render() {
     const buttons = [];
-    this.state.stores.forEach(ele =>
+    this.state.stores.forEach((ele,ind) =>
       buttons.push(
-        <button type='button' className='storeButton' onClick={() => this.findRecall(ele)}>{ele}</button>
+        <button key = {`button${ind}`} type='button' className='storeButton' onClick={() => this.findRecall(ele)}>{ele}</button>
       )
     );
 
