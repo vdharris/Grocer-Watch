@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import RecallResults from './RecallResults';
 import AddRecall from './AddRecall'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import grocerRecallLogo from './../images/grocerRecallLogo.png'
 
 
 class QueryContainer extends Component {
@@ -86,9 +87,8 @@ class QueryContainer extends Component {
     return (
       <div>
         <div className='head'>
-          
-          <h1 id='title' >grocer recalls</h1>
-          
+          <h1 id='title' >grocer recalls.</h1>
+          <img id="logo" src={grocerRecallLogo} alt='grocer recall logo'/>
         </div>
         <div className='queryContainer'>
           <div className='queryHeader'>
