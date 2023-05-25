@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RecallResults from './RecallResults';
-import StoreButton from './StoreButton'
+// import StoreButton from './StoreButton'
+import { Link } from 'react-router-dom';
 
 
 class QueryContainer extends Component {
@@ -83,15 +84,22 @@ class QueryContainer extends Component {
 
 
     return (
-      <div className='queryContainer'>
-        <div className='queryHeader'>
-          <h2 id='storeTitle'>Store Selector</h2>
-          <div className='storesContainer'>
-            {buttons}
-          </div>
+      <div>
+        <div className='head'>
+          <Link to='/'>
+          <h1 id='title'>Grocery Store Recalls</h1>
+          </Link>
         </div>
-        <div className='recallFeed'>
-          {items}
+        <div className='queryContainer'>
+          <div className='queryHeader'>
+            <h2 id='storeTitle'>Store Selector</h2>
+            <div className='storesContainer'>
+              {buttons}
+            </div>
+          </div>
+          <div className='recallFeed'>
+            {items}
+          </div>
         </div>
       </div>
     );

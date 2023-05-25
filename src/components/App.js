@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import QueryContainer from './QueryContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import RecallResults from './RecallResults';
 import '../stylesheets/styles.scss'
 
+
 class App extends Component {
-    render(){
-        return(
+    render() {
+        return (
             <div className='page'>
-                <div className ='head'>
-                <h1 id='title'>Grocery Store Recalls</h1>
-                </div>
-                <QueryContainer/>
+                <BrowserRouter>
+                    <div>
+                        <Routes>
+                            <Route path='/' element={<QueryContainer />} />
+                        </Routes>
+                    </div>
+                </BrowserRouter>
             </div>
         )
     }
