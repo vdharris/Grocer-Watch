@@ -7,36 +7,49 @@ mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // sets the name of the DB that our collections are part of
-    dbName: 'starwars'
-  })
+    dbName: 'FDArecalls'
+})
     .then(() => console.log('Connected to Mongo DB.'))
     .catch(err => console.log(err));
-  
-  const Schema = mongoose.Schema;
 
-  const speciesSchema = new Schema({
-    name: String,
+const Schema = mongoose.Schema;
+
+// const speciesSchema = new Schema({
+//     name: String,
+//     classification: String,
+// });
+// // creats a model for the 'species' collection that will be part of the export
+// const Species = mongoose.model('species', speciesSchema);
+
+const foodRecallSchema = new Schema({
+    status: String,
+    city: String,
+    state: String,
+    country: String,
     classification: String,
-    average_height: String,
-    average_lifespan: String,
-    hair_colors: String,
-    skin_colors: String,
-    eye_colors: String,
-    language: String,
-    homeworld: String,
-    homeworld_id: {
-      // type of ObjectId makes this behave like a foreign key referencing the 'planet' collection
-      type: Schema.Types.ObjectId,
-      ref: 'planet'
-    }
-  });
-  
-  // creats a model for the 'species' collection that will be part of the export
-  const Species = mongoose.model('species', speciesSchema);
+    openfda: Object,
+    product_type: String,
+    event_id: String,
+    recalling_firm: String,
+    address_1: String,
+    address_2: String,
+    postal_code: String,
+    voluntary_mandated: String,
+    initial_firm_notification: String,
+    distribution_pattern: String,
+    recall_number: String,
+    product_description: String,
+    product_quantity: String,
+    reason_for_recall: String,
+    recall_initiation_date: String,
+    center_classification_date: String,
+    termination_date: String,
+    report_date: String,
+    code_info: String,
+})
+//creats a model for the 'foodRecalls' collection that will be part of the export
+const FoodRecalls = mongoose.model('foodRecalls', foodRecallSchema);
 
-  module.exports = {
-    Species,
-    Planet,
-    Film,
-    Person
-  };
+module.exports = {
+    FoodRecalls
+};
