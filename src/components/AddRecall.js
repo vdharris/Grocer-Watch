@@ -33,7 +33,7 @@ const handleSubmit = async (e) => {
 
     return (
         <form className='create' onSubmit={handleSubmit}>
-            <h3>Add New Recall</h3>
+            <h3>Add Citizen Recall</h3>
             <label>Manufacturer</label><br/>
             <input type="text" onChange={(e) => setFirm(e.target.value)} value={recalling_firm}/><br/>
             
